@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
+// import axios from "axios";
 
 import Nav from "react-bootstrap/Nav";
 import "./App.css";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Button } from "react-bootstrap";
+// import { Link } from "react-router-dom";
 import logo from "./assets/linkedin.png";
 
 function App() {
-  let redirect_url = "http://localhost:3000";
-  let client_id = "774up8xbssfyp5";
+  // let redirect_url = "http://localhost:3000";
+  // let client_id = "774up8xbssfyp5";
 
   return (
     <div className="App">
