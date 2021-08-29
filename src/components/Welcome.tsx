@@ -1,6 +1,6 @@
-import { Typography } from "@material-ui/core";
+import { Typography,Card } from "@material-ui/core";
 import React from "react";
-import { Card } from "react-bootstrap";
+
 import Linkedin from "./Linkedin";
 
 
