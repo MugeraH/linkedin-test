@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-// import axios from "axios";
-import { useParams } from "react-router-dom";
+import axios from "axios";
 
-import Nav from "react-bootstrap/Nav";
 import "./App.css";
-// import { Button } from "react-bootstrap";
-// import { Link } from "react-router-dom";
-import logo from "./assets/linkedin.png";
+import Linkedin from "./components/Linkedin";
+import { Typography, Card } from "@material-ui/core";
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Welcome from "./components/Welcome";
 
 function App() {
   const [state, setState] = useState(false);
-  // let redirect_url = "http://localhost:3000";
-  // let client_id = "774up8xbssfyp5";
 
-  var getAuthToken = function (url: string) {
+  var getAccessToken = function (url: string) {
     var params = {};
     (url + "?")
       .split("?")[1]
@@ -28,46 +26,34 @@ function App() {
       });
 
     return params;
+
+    // if (Object.keys(params).length !== 0) {
+    //   //@ts-ignore
+    //   var code = params?.code;
+
+    //   let funct = async () => {
+    //     let res = await axios.post(
+    //       `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&client_id=774up8xbssfyp5&client_secret=LEPAHZBDY4Xm4xaY&redirect_uri=http://localhost:3000&code=${code}`
+    //     );
+
+    //     console.log(res);
+    //     return res;
+    //   };
+
+    //   funct();
+    // }
   };
   let url = window.location.href;
-  let data = getAuthToken(url);
+  let data = getAccessToken(url);
   // @ts-ignore
   console.log(data.code);
 
   return (
     <div className="App">
-      <Nav className="justify-content-center" activeKey="/home">
-        <Nav.Item>
-          <Nav.Link href="/home">Active</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
-        </Nav.Item>
-      </Nav>
-
-      <div className="container">
-        <div className="link">
-          <img src={logo} alt="linkedin logo" />
-
-          <a
-            href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&state=657575&scope=r_liteprofile%20r_emailaddress&client_id=774up8xbssfyp5&redirect_uri=
-http%3A%2F%2Flocalhost%3A3000"
-          >
-            Linkedin
-          </a>
-        </div>
-        {/* <Link
-          className="btn btn-primary"
-          to="https://www.linkedin.com/oauth/v2/authorization?response_type=code&state=657575&scope=r_liteprofile%20r_emailaddress&client_id=774up8xbssfyp5redirect_uri=http%3A%2F%2Flocalhost%3A3000"
-        >
-          Linkedin
-        </Link> */}
-      </div>
-
-      {state ? <h2>Connected</h2> : <h2> Not Connected</h2>}
+      <Switch>
+        <Route path="/" exact component={Welcome} />
+        <Route path="/home" exact component={Home} />
+      </Switch>
     </div>
   );
 }

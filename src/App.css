@@ -1,3 +1,8 @@
+html,body {
+  height: 100vh;
+}
+
+
 .link {
   width: 140px;
   padding: 10px;
@@ -21,4 +26,25 @@
   display: block;
 
   padding: 5px 0px 0px 10px;
+}
+
+.card {
+  margin: 200px auto;
+
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro {
+  font-weight: 600;
+
+  color: #0779c1;
+}
+.intro-text {
+  font-weight: 600;
 }
