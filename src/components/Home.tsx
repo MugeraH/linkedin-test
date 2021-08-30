@@ -1,7 +1,6 @@
 import React from "react";
 import Loader from "./layout/Loader";
-
-// import axios from "axios";
+import axios from "axios";
 
 function Home() {
   var getAccessToken = function (url: string) {
@@ -23,9 +22,18 @@ function Home() {
   let url = window.location.href;
   let data = getAccessToken(url);
   // @ts-ignore
-  console.log(data.code);
+  let code = data.code;
   // @ts-ignore
   // localStorage.setItem("__linkedinAccessToken__", data.code);
+
+  if (code) {
+    let sendCode = async (code: string) => {
+      let res = await axios.post("http://localhost:5008/profile/details", code);
+      return res;
+    };
+
+    // console.log(sendCode);
+  }
 
   return (
     <div>
