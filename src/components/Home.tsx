@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import Loader from "./layout/Loader";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function Home() {
+  const history = useHistory();
   var getAccessToken = function (url: string) {
     var params = {};
     (url + "?")
@@ -35,17 +37,25 @@ function Home() {
         // console.log(res.data);
         let accessToken = res.data.access_token;
 
-        let response = await axios.post("http://localhost:5008/profile/user", {
-          token: accessToken,
-        });
-        console.log(response.data);
-
-        return response.data;
+        await axios
+          .post("http://localhost:5008/profile/user", {
+            token: accessToken,
+          })
+          .then((response) => {
+            console.log(response.data);
+            history.push("/profile");
+            return response.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       };
 
-      sendCode(code);
+      let result = sendCode(code);
+
+      console.log(typeof result);
     }
-  }, []);
+  }, [history]);
 
   return (
     <div>
