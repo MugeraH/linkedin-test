@@ -46,7 +46,7 @@ function Profile() {
 
         <div className={classes.names}>
           {/* @ts-ignore */}
-          <span className={classes.name}>{profile.firstName}</span>
+          <span className={classes.name}>Hughes</span>
           <span>Mugera</span>
         </div>
 
