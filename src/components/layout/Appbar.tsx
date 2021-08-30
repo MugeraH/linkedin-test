@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // import { useDispatch } from "react-redux";
 
@@ -108,6 +108,9 @@ function Appbar() {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles({ open });
+  useEffect(() => {
+    setOpen(false);
+  }, []);
 
   return (
     <AppBar position="fixed" className={classes.navbar}>
