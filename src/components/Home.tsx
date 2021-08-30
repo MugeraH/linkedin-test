@@ -42,8 +42,9 @@ function Home() {
             token: accessToken,
           })
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             history.push("/profile");
+            localStorage.setItem("profile", JSON.stringify(response.data));
             return response.data;
           })
           .catch((err) => {
