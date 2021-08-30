@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Profile() {
   const classes = useStyles();
-  let profile = localStorage.getItem("profile");
+  //@ts-ignore
+  let profile = JSON.parse(localStorage.getItem("profile"));
   //@ts-ignore
   console.log(profile);
 
