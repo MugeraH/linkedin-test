@@ -1,21 +1,7 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import Appbar from "./layout/Appbar";
-import Loader from "../assets/Bars-1.1s-227px.svg";
-import axios from "axios";
+import Loader from "./layout/Loader";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    backgroundColor: "white",
-    height: "100vh",
-    width: "100%",
-    paddingTop: theme.spacing(30),
-    textAlign: "center",
-  },
-  image: {
-    height: "150px",
-  },
-}));
+// import axios from "axios";
 
 function Home() {
   var getAccessToken = function (url: string) {
@@ -41,13 +27,9 @@ function Home() {
   // @ts-ignore
   // localStorage.setItem("__linkedinAccessToken__", data.code);
 
-  const classes = useStyles();
   return (
     <div>
-      <Container className={classes.container}>
-        {/* <Typography variant="h4">Welcome to home page</Typography> */}
-        <img className={classes.image} src={Loader} alt="loader" />
-      </Container>
+      <Loader />
     </div>
   );
 }
