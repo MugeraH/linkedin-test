@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loader from "./layout/Loader";
 import axios from "axios";
+
 
 function Home() {
   var getAccessToken = function (url: string) {
@@ -19,21 +20,27 @@ function Home() {
 
     return params;
   };
-  let url = window.location.href;
-  let data = getAccessToken(url);
-  // @ts-ignore
-  let code = data.code;
-  // @ts-ignore
-  // localStorage.setItem("__linkedinAccessToken__", data.code);
+  useEffect(() => {
+    let url = window.location.href;
+    let data = getAccessToken(url);
+    // @ts-ignore
+    let code = data.code;
 
-  if (code) {
-    let sendCode = async (code: string) => {
-      let res = await axios.post("http://localhost:5008/profile/details", code);
-      return res;
-    };
+    if (code) {
+      // console.log(code);
 
-    console.log(sendCode);
-  }
+      let sendCode = async (code: string) => {
+        let res = await axios.post("http://localhost:5008/profile/details", {
+          code: code,
+        });
+        console.log(res.data);
+
+        return res.data;
+      };
+
+      sendCode(code);
+    }
+  }, []);
 
   return (
     <div>
