@@ -121,7 +121,7 @@ function Appbar() {
             TestLinkedin
           </Typography>
           <Typography variant="h5" className={classes.logoSm}>
-            TestLinkedin
+            TL
           </Typography>
         </div>
 
