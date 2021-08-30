@@ -32,7 +32,7 @@ function Home() {
       return res;
     };
 
-    // console.log(sendCode);
+    console.log(sendCode);
   }
 
   return (
