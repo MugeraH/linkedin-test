@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Loader from "./layout/Loader";
 import axios from "axios";
 
-
 function Home() {
   var getAccessToken = function (url: string) {
     var params = {};
@@ -30,12 +29,18 @@ function Home() {
       // console.log(code);
 
       let sendCode = async (code: string) => {
-        let res = await axios.post("http://localhost:5008/profile/details", {
+        let res = await axios.post("http://localhost:5008/profile/token", {
           code: code,
         });
-        console.log(res.data);
+        // console.log(res.data);
+        let accessToken = res.data.access_token;
 
-        return res.data;
+        let response = await axios.post("http://localhost:5008/profile/user", {
+          token: accessToken,
+        });
+        console.log(response.data);
+
+        return response.data;
       };
 
       sendCode(code);
