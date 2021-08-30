@@ -51,9 +51,7 @@ function Home() {
           });
       };
 
-      let result = sendCode(code);
-
-      console.log(typeof result);
+      sendCode(code);
     }
   }, [history]);
 

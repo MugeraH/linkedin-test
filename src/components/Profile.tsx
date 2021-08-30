@@ -1,16 +1,11 @@
-import React, { ReactElement } from 'react'
+import React from "react";
 
-interface Props {
-    
+function Profile() {
+  return (
+    <div>
+      <h2>Profile</h2>
+    </div>
+  );
 }
 
-function Profile({}: Props): ReactElement {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default Profile
-
+export default Profile;
