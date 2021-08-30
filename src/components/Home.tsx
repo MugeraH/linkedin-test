@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
 import Loader from "./layout/Loader";
-import axios from "axios";
+
+import { get_profile } from "../utils/utils";
+
 import { useHistory } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 
 function Home() {
   const history = useHistory();
+  const dispatch = useDispatch();
   var getAccessToken = function (url: string) {
     var params = {};
     (url + "?")
@@ -28,33 +33,10 @@ function Home() {
     let code = data.code;
 
     if (code) {
-      // console.log(code);
-
-      let sendCode = async (code: string) => {
-        let res = await axios.post("http://localhost:5008/profile/token", {
-          code: code,
-        });
-        // console.log(res.data);
-        let accessToken = res.data.access_token;
-
-        await axios
-          .post("http://localhost:5008/profile/user", {
-            token: accessToken,
-          })
-          .then((response) => {
-            // console.log(response.data);
-            history.push("/profile");
-            localStorage.setItem("profile", JSON.stringify(response.data));
-            return response.data;
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-
-      sendCode(code);
+      get_profile(code, dispatch);
+      history.push("/profile");
     }
-  }, [history]);
+  }, [history, dispatch]);
 
   return (
     <div>
