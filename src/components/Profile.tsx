@@ -64,7 +64,12 @@ function Profile() {
             </div>
 
             <div className={classes.names}>
-              <span>Mugerahughes@gmail.com</span>
+              {email && (
+                <>
+                   {/* @ts-ignore */}
+                  <span>{email?.["handle~"].emailAddress}</span>
+                </>
+              )}
             </div>
           </>
         )}
