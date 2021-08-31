@@ -35,7 +35,7 @@ function Home() {
     if (code) {
       get_profile(code, dispatch);
 
-      history.push("/profile");
+      // history.push("/profile");
     }
   }, [history, dispatch]);
 
