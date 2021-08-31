@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     borderRadius: "50%",
   },
+  img: {
+    width: "100%",
+    height: "100%",
+  },
   names: {
     marginTop: theme.spacing(4),
   },
@@ -41,13 +45,17 @@ function Profile() {
       <Container className={classes.container}>
         <Typography variant="h4">Profile</Typography>
         <div className={classes.profile_pic}>
-          <img src="" alt="" />
+          <img
+            className={classes.img}
+            src={profile.profilePicture.dispalyImage}
+            alt="profile"
+          />
         </div>
 
         <div className={classes.names}>
           {/* @ts-ignore */}
-          <span className={classes.name}>Hughes</span>
-          <span>Mugera</span>
+          <span className={classes.name}>{profile.localizedFirstName}</span>
+          <span>{profile.localizedLastName}</span>
         </div>
 
         <div className={classes.names}>
