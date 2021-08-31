@@ -47,7 +47,11 @@ function Profile() {
         {profile && (
           <>
             <div className={classes.profile_pic}>
-              <img className={classes.img} src="" alt="profile" />
+              <img
+                className={classes.img}
+                src={profile.profilePicture.displayImage}
+                alt="profile"
+              />
             </div>
 
             <div className={classes.names}>
