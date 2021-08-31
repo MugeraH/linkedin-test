@@ -37,30 +37,32 @@ function Profile() {
   const classes = useStyles();
 
   const { profile } = useSelector((state?: RootStateOrAny) => state.profile);
-
+  console.log(profile);
 
   return (
     <div>
       <Appbar />
       <Container className={classes.container}>
         <Typography variant="h4">Profile</Typography>
-        <div className={classes.profile_pic}>
-          <img
-            className={classes.img}
-            src=""
-            alt="profile"
-          />
-        </div>
+        {profile && (
+          <>
+            <div className={classes.profile_pic}>
+              <img className={classes.img} src="" alt="profile" />
+            </div>
 
-        <div className={classes.names}>
-          {/* @ts-ignore */}
-          <span className={classes.name}>{profile.localizedFirstName}</span>
-          <span>{profile.localizedLastName}</span>
-        </div>
+            <div className={classes.names}>
+              {/* @ts-ignore */}
+              <span className={classes.name}>
+                {profile?.localizedFirstName}
+              </span>
+              <span>{profile?.localizedLastName}</span>
+            </div>
 
-        <div className={classes.names}>
-          <span>Mugerahughes@gmail.com</span>
-        </div>
+            <div className={classes.names}>
+              <span>Mugerahughes@gmail.com</span>
+            </div>
+          </>
+        )}
       </Container>
     </div>
   );
