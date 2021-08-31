@@ -37,7 +37,7 @@ function Profile() {
   const classes = useStyles();
 
   const { profile } = useSelector((state?: RootStateOrAny) => state.profile);
-  console.log(profile.profilePicture.dispalyImage);
+
 
   return (
     <div>
