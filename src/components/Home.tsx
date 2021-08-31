@@ -33,7 +33,7 @@ function Home() {
     let code = data.code;
 
     if (code) {
-      console.log(get_profile(code, dispatch));
+     get_profile(code, dispatch)
 
       // history.push("/profile");
     }

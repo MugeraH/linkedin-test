@@ -1,4 +1,4 @@
-// import { GET_PROFILE } from "../redux/actions/actionTypes";
+import { GET_PROFILE } from "../redux/actions/actionTypes";
 import axios from "axios";
 
 const get_profile = async (code: string, dispatch: Function) => {
@@ -14,11 +14,13 @@ const get_profile = async (code: string, dispatch: Function) => {
         token: accessToken,
       })
       .then((response) => {
-        // dispatch({
-        //   type: GET_PROFILE,
-        //   payload: response.data,
-        // });
-        console.log(response.data);
+
+ console.log(response.data);
+        dispatch({
+          type: GET_PROFILE,
+          payload: response.data,
+        });
+       
 
         return response.data;
       });
