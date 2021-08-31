@@ -33,8 +33,9 @@ function Home() {
     let code = data.code;
 
     if (code) {
-      get_profile(code, dispatch);
-      history.push("/profile");
+      console.log(get_profile(code, dispatch));
+
+      // history.push("/profile");
     }
   }, [history, dispatch]);
 
