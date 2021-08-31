@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Typography, makeStyles } from "@material-ui/core";
 import Appbar from "./layout/Appbar";
+import { useSelector, RootStateOrAny } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -30,9 +31,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Profile() {
   const classes = useStyles();
-  //@ts-ignore
-  let profile = JSON.parse(localStorage.getItem("profile"));
-  //@ts-ignore
+
+  const { profile } = useSelector((state?: RootStateOrAny) => state.profile);
   console.log(profile);
 
   return (

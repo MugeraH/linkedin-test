@@ -15,7 +15,7 @@ const get_profile = async (code: string, dispatch: Function) => {
       })
       .then((response) => {
 
- console.log(response.data);
+
         dispatch({
           type: GET_PROFILE,
           payload: response.data,
