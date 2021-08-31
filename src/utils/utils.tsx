@@ -8,7 +8,7 @@ const get_profile = async (code: string, dispatch: Function) => {
     });
 
     let accessToken = res.data.access_token;
-    console.log(accessToken);
+    // console.log(accessToken);
 
     try {
       await axios

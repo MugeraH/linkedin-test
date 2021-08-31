@@ -38,7 +38,7 @@ function Profile() {
 
   const { profile } = useSelector((state?: RootStateOrAny) => state.profile);
   const { email } = useSelector((state?: RootStateOrAny) => state.email);
-  console.log(email);
+  // console.log(email);
 
   return (
     <div>
@@ -50,7 +50,7 @@ function Profile() {
             <div className={classes.profile_pic}>
               <img
                 className={classes.img}
-                src={profile.profilePicture.displayImage}
+                src=""
                 alt="profile"
               />
             </div>
