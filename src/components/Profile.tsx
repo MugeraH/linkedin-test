@@ -37,7 +37,7 @@ function Profile() {
   const classes = useStyles();
 
   const { profile } = useSelector((state?: RootStateOrAny) => state.profile);
-  console.log(profile);
+  console.log(profile.profilePicture.dispalyImage);
 
   return (
     <div>
@@ -47,7 +47,7 @@ function Profile() {
         <div className={classes.profile_pic}>
           <img
             className={classes.img}
-            src={profile.profilePicture.dispalyImage}
+            src=""
             alt="profile"
           />
         </div>
