@@ -37,7 +37,8 @@ function Profile() {
   const classes = useStyles();
 
   const { profile } = useSelector((state?: RootStateOrAny) => state.profile);
-  console.log(profile);
+  const { email } = useSelector((state?: RootStateOrAny) => state.email);
+  console.log(email);
 
   return (
     <div>

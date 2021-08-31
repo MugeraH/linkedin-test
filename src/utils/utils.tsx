@@ -1,4 +1,4 @@
-import { GET_PROFILE } from "../redux/actions/actionTypes";
+import { GET_PROFILE, GET_EMAIL } from "../redux/actions/actionTypes";
 import axios from "axios";
 
 const get_profile = async (code: string, dispatch: Function) => {
@@ -16,7 +16,10 @@ const get_profile = async (code: string, dispatch: Function) => {
           token: accessToken,
         })
         .then((response) => {
-          console.log(response.data);
+          dispatch({
+            type: GET_EMAIL,
+            payload: response.data,
+          });
         });
     } catch (error) {
       console.log(error);
