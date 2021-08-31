@@ -8,6 +8,8 @@ const get_profile = async (code: string, dispatch: Function) => {
     });
 
     let accessToken = res.data.access_token;
+    console.log(accessToken);
+
     await axios
       .post("http://localhost:5008/profile/email", {
         token: accessToken,
